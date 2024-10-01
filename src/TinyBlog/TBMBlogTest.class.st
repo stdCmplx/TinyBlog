@@ -1,15 +1,17 @@
 Class {
-	#name : #TBMBlogTest,
-	#superclass : #TestCase,
+	#name : 'TBMBlogTest',
+	#superclass : 'TestCase',
 	#instVars : [
 		'blog',
 		'post',
 		'first'
 	],
-	#category : #'TinyBlog-Tests'
+	#category : 'TinyBlog-Tests',
+	#package : 'TinyBlog',
+	#tag : 'Tests'
 }
 
-{ #category : #running }
+{ #category : 'running' }
 TBMBlogTest >> setUp [
 	blog := TBMBlog current.
 	blog removeAllPosts.
@@ -20,40 +22,40 @@ TBMBlogTest >> setUp [
 	post := (TBMPost title: 'Another title' text: 'Another text' category: 'Second Category') beVisible
 ]
 
-{ #category : #running }
+{ #category : 'running' }
 TBMBlogTest >> tearDown [
 	TBMBlog reset
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TBMBlogTest >> testAddBlogPost [
 
 	blog writeBlogPost: post.
 	self assert: blog size equals: 2
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TBMBlogTest >> testAllBlogPosts [
 
 	blog writeBlogPost: post.
 	self assert: blog allBlogPosts size equals: 2
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TBMBlogTest >> testAllBlogPostsFromCategory [
 
 	self assert: (blog allBlogPostsFromCategory: 'First Category')
 		size equals: 1
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TBMBlogTest >> testAllVisibleBlogPosts [
 
 	blog writeBlogPost: post.
 	self assert: blog allVisibleBlogPosts size equals: 1
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TBMBlogTest >> testAllVisibleBlogPostsFromCategory [
 
 	blog writeBlogPost: post.
@@ -63,27 +65,27 @@ TBMBlogTest >> testAllVisibleBlogPostsFromCategory [
 		size equals: 1
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TBMBlogTest >> testAssCategories [
 
 	blog writeBlogPost: post.
 	self assert: blog allCategories size equals: 2
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TBMBlogTest >> testRemoveAllBlogPosts [
 
 	blog removeAllPosts.
 	self assert: blog size equals: 0
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TBMBlogTest >> testSize [
 
 	self assert: blog size equals: 1
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TBMBlogTest >> testUnClassifiedBlogPosts [
 
 	self assert: (blog allBlogPosts select: [ :p | p isUnclassified])

@@ -1,6 +1,6 @@
 Class {
-	#name : #TBMPost,
-	#superclass : #Object,
+	#name : 'TBMPost',
+	#superclass : 'Object',
 	#instVars : [
 		'title',
 		'text',
@@ -11,59 +11,37 @@ Class {
 	#classInstVars : [
 		'unclassifiedTag'
 	],
-	#category : #TinyBlog
+	#category : 'TinyBlog',
+	#package : 'TinyBlog'
 }
 
-{ #category : #'instance creation' }
-TBMPost class >> title: aTitle text: aText [
-
-	^ self new
-		title: aTitle;
-		text: aText;
-		yourself
-]
-
-{ #category : #'instance creation' }
-TBMPost class >> title: aTitle text: aText category: aCategory [
-
-	^ (self title: aTitle text: aText)
-		category: aCategory;
-		yourself
-]
-
-{ #category : #accessing }
-TBMPost class >> unclassifiedTag [
-
-	^ 'Unclassified'
-]
-
-{ #category : #action }
+{ #category : 'action' }
 TBMPost >> beVisible [
 
 	self visible: true
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TBMPost >> category [
 	^ category
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TBMPost >> category: anObject [
 	category := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TBMPost >> date [
 	^ date
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TBMPost >> date: aDate [
 	date := aDate
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 TBMPost >> initialize [
 
 	super initialize.
@@ -72,50 +50,50 @@ TBMPost >> initialize [
 	self notVisible
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TBMPost >> isUnclassified [
 
 	^ self category = TBMPost unclassifiedTag
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 TBMPost >> isVisible [
 
 	^ self visible
 ]
 
-{ #category : #action }
+{ #category : 'action' }
 TBMPost >> notVisible [
 
 	self visible: false
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TBMPost >> text [
 	^ text
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TBMPost >> text: aString [
 	text := aString
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TBMPost >> title [
 	^ title
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TBMPost >> title: aString [
 	title := aString
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TBMPost >> visible [
 	^ visible
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TBMPost >> visible: aBoolean [
 	visible := aBoolean
 ]

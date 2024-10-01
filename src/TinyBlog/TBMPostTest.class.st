@@ -1,10 +1,12 @@
 Class {
-	#name : #TBMPostTest,
-	#superclass : #TestCase,
-	#category : #'TinyBlog-Tests'
+	#name : 'TBMPostTest',
+	#superclass : 'TestCase',
+	#category : 'TinyBlog-Tests',
+	#package : 'TinyBlog',
+	#tag : 'Tests'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 TBMPostTest >> testPostIsCreatedCorrectly [
 
 	| post |
@@ -16,7 +18,7 @@ TBMPostTest >> testPostIsCreatedCorrectly [
 	self assert: post text equals: 'TinyBlog is a small blog engine made with Pharo.'
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TBMPostTest >> testWithoutCategoryIsUnclassified [
 
 	| post |
